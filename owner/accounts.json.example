@@ -1,0 +1,25 @@
+{
+  "_hinweis": "NUR Benutzernamen und Ablageorte. KEINE Passwoerter - die gehoeren in einen Passwort-Manager.",
+  "owner": {
+    "user": "maxi_owner",
+    "note": "Owner-Konto auf maxichen.de, 2FA Pflicht (sonst kein Haken)",
+    "pass_wo": "Passwort-Manager"
+  },
+  "email": {
+    "user": "contact@maxichen.de",
+    "host": "smtp.strato.de",
+    "port": 465,
+    "pass_wo": "Passwort-Manager + ENV STRATO_SMTP_PASS"
+  },
+  "server": {
+    "ssh": "user@maxichen.de",
+    "path": "/var/www/maxichen.de",
+    "note": "Strato-Webspace, nginx, Node"
+  },
+  "release_key": {
+    "datei": "keys/release.jks",
+    "alias": "maxichat",
+    "cert_sha256": "b42ca11f8a7836d4518c6c65bf0b0cbe5f32132e0b41d79988def6217d12caeb",
+    "backup": "2x USB-Stick, offline, getrennt vom Projekt"
+  }
+}

@@ -1,0 +1,5 @@
+# 🔒 keys/ — alles Echte verboten, sonst kann jeder Updates fälschen.
+*
+!README.md
+!.gitignore
+!*.example

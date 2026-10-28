@@ -1,0 +1,204 @@
+💗 maxichen.de — DEPLOY-ANLEITUNG V4.15.1
+=========================================
+
+Was hochgeladen werden muss, liegt in diesem Ordner unter client/.
+Was NICHT mit hochgeladen wird: keys/ und owner/ (siehe Punkt 8).
+
+
+1) HOCHLADEN (Struktur 1:1 übernehmen)
+--------------------------------------
+ERSETZEN:
+  client/index.html
+  client/downloads.html
+  client/app/index.html
+  client/app/qr-apk.svg
+
+NEU:
+  client/app.js                            ← der Registrierungs-Fix
+  client/fonts/                            ← 17 Dateien (Baloo 2 + Quicksand)
+  client/app/maxichen-v4.15.apk            ← 27.985.732 Byte
+  client/app/sources-v4.15.zip             ←   451.716 Byte
+  client/app/maxichen-ios-4.15.zip         ←    45.729 Byte
+  client/app/maxichat-windows-4.15.exe     ← 2.450.944 Byte
+
+AUF DEM SERVER LÖSCHEN:
+  client/app/maxichen-v4.13.apk            ← die kaputte Debug-APK
+  client/app/sources-v4.13.zip
+
+
+2) TIPP: nimm das ZIP, pack es dort aus
+----------------------------------------
+Lovechat-FINAL-v4.15.zip enthält den Ordner Lovechat/client/.
+Auf dem Server:
+
+  cd /pfad/zu/maxichen.de
+  unzip -o Lovechat-FINAL-v4.15.zip 'Lovechat/client/*'
+  cp -r Lovechat/client/* .
+  rm client/app/maxichen-v4.13.apk client/app/sources-v4.13.zip
+
+(Der Pfad kann bei Strato /var/www/... oder ~/htdocs heißen —
+ schau in der Strato-Konsole nach dem Web-Root.)
+
+
+3) ⚠️ DER WICHTIGSTE PUNKT: NGINX MUSTER
+-----------------------------------------
+Dein nginx schickt bei JEDER unbekannten URL die index.html mit Status 200.
+Damit ist eine nicht vorhandene "maxichen-v4.15.apk" plötzlich HTML mit
+.apk-Endung → Android sagt "Paket ungültig". Genau das war live zu sehen:
+
+  /app/maxichen-v4.15.apk  → 200, text/html, 130.871 B   ← falsch!
+  /app/maxichen-v4.13.apk  → 200, 32.178.715 B           ← alte Datei noch da
+
+So muss es aussehen — in /etc/nginx/sites-available/maxichen.de:
+
+    # Dateien IMMER echt ausliefern, nie auf index.html fallen lassen
+    location ~* \.(apk|zip|exe|svg|woff2|png|js|css)$ {
+        try_files $uri =404;
+    }
+
+    # Nur die Seiten selbst dürfen auf index.html zurückfallen
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+WICHTIG: Der Datei-Block MUSS VOR dem location / stehen.
+Reihenfolge zählt bei nginx: der erste passende Block gewinnt.
+
+Dann:
+  sudo nginx -t          # Syntax prüfen
+  sudo systemctl reload nginx
+
+
+4) TEST NACH DEM UPLOAD — MUSS SO AUSSEHEN
+-------------------------------------------
+  curl -sI https://maxichen.de/app/maxichen-v4.15.apk \
+    | grep -E "HTTP|Content-Length|Content-Type"
+  # HTTP/2 200
+  # content-type: application/vnd.android.package-archive
+  # content-length: 27985732
+
+  curl -sI https://maxichen.de/app/maxichen-v4.13.apk
+  # HTTP/2 404        ← die alte MUSS weg sein!
+
+  curl -sI https://maxichen.de/app/maxichat-windows-4.15.exe \
+    | grep -E "HTTP|Content-Length"
+  # HTTP/2 200
+  # content-length: 2450944
+
+Alles auf einmal:  bash Lovechat/tools/verify-live.sh
+(siehe Punkt 7)
+
+
+5) SERVER-DATEIEN (nur wenn du den Node-Server selbst betreibst)
+-----------------------------------------------------------------
+  server/server.js            ← Einstieg, Port 7777 (Standard)
+  server/pair.js              ← WhatsApp-Brücke, Port 3100, dauerhaft daneben
+  server/security-headers.js
+  server/signup.js  mailer.js  accounts.js  twofa.js  moderation.js
+  server/badges.js  e2e.js  turn.js  extras.js  loveai.js  v3.js
+  package.json  .env.example
+  server/data/                ← Datenbank (5 Nutzer / 4 Chats)
+
+WICHTIG (neu in V4.15.1):
+In server.js zeigt CLIENT_DIR auf ../client
+(client/ liegt eine Ebene über server/):
+
+  const CLIENT_DIR = path.join(__dirname, '..', 'client');
+
+Wenn du die Ordner anders anordnest, muss diese Zeile angepasst werden.
+
+
+6) ENV-VARIABLEN — NIE IM CODE
+-------------------------------
+  STRATO_SMTP_PASS   nur als Umgebungsvariable setzen
+  INTERNAL_TOKEN     nur als ENV
+  TURN_SECRET        nur als ENV
+
+Richtig:
+  export STRATO_SMTP_PASS='...'
+  node server.js
+
+Falsch (und verboten):
+  Passwort in creds.json, in .js-Dateien, in .env im Repo, im ZIP.
+
+
+7) PRÜFSUMMEN + SELBST-PRÜFUNG
+------------------------------
+APK   27.985.732 B
+      MD5    27a98c9bafe3e97a9853b856e053d502
+      SHA256 23a5828475e9897a788126dd4a8e703ff6792249be13498153fb3af7902377fe
+EXE    2.450.944 B
+      SHA256 cfc5b47ff8294f37c2322166515b02be86ab3e0e25e31d58f474ccb236ff0e45
+iOS       45.729 B
+      SHA256 c08ca7e0d58ee70fe7aeb4a1f7d02992ed19663f5fe1f44fa191d4d47b933d54
+
+Nach dem Upload diese Datei ausführen — sie prüft alles automatisch:
+
+  bash tools/verify-live.sh
+
+Erwartete Ausgabe am Ende:  ALLE PRÜFUNGEN BESTANDEN
+
+
+8) 🔑 GEHEIMNISSE — ZWEI ORDNER, NIE IM ZIP, NIE AUF GITHUB
+------------------------------------------------------------
+  Lovechat/keys/                 (Ordner 700)
+     release.jks                 (600)  Release-Schlüssel
+     password.txt                (600)  Passwort dazu
+
+  Lovechat/owner/                (Ordner 700)
+     credentials.env             (600)  Mail-Passwort, Tokens, Owner
+     accounts.json               (600)  Konten + Ablageorte
+
+Beide sind ABSICHTLICH NICHT im Lovechat-FINAL-v4.15-SECURE.zip.
+Grund: Ein ZIP wandert herum (USB-Stick, Cloud, Mail). Wer den Schlüssel
+hat, kann gefälschte Updates bauen, die Android als echt akzeptiert.
+Wer credentials.env hat, kommt an dein Postfach und deinen Owner-Account.
+
+Im ZIP liegen nur die Vorlagen:
+  keys/README.md · keys/*.example
+  owner/README.md · owner/*.example
+
+→ Sicherung: 2 USB-Sticks, offline, getrennt vom Projekt.
+→ Bei GitHub: .gitignore schließt beide Ordner datei-genau aus
+  (README und .example bleiben drin, damit das Repo verständlich ist).
+→ Verloren = kein Update mehr möglich. Alle müssten deinstallieren.
+
+ENV auf dem Server laden — SICHER (nicht mit export $(cat ... | xargs),
+das zerlegt Passwörter mit Leerzeichen oder & ):
+
+  cd ~/Lovechat
+  set -a; . ./owner/credentials.env; set +a
+  node server/server.js
+
+  oder:  bash tools/load-env.sh --start
+
+Nach jedem Upload prüfen, dass nichts ausgelaufen ist:
+
+  bash tools/check-secrets.sh Lovechat-FINAL-v4.15-SECURE.zip
+  → muss enden mit: 🎉 ALLES SAUBER
+
+Zertifikat: CN=MaxiChen, OU=LoveChat, O=MaxiChen, L=Recklinghausen, ST=NRW, C=DE
+SHA-256:    b42ca11f8a7836d4518c6c65bf0b0cbe5f32132e0b41d79988def6217d12caeb
+Gültig:     01.01.2020 – 24.12.2049
+
+
+9) AUF DEM HANDY
+----------------
+1. Alte LoveChat/MaxiChen deinstallieren
+   (Debug- und Release-Schlüssel kollidieren → "App nicht installiert")
+2. Browser-Cache leeren oder Inkognito-Fenster
+3. maxichen.de/downloads neu laden
+4. Datei muss 27.985.732 Byte haben — steht auf der Seite
+5. Neu installieren
+
+
+10) WENN ES IMMER NOCH NICHT GEHT
+---------------------------------
+Schick die GENAUe Fehlermeldung oder einen Screenshot. Wichtig:
+  - Steht auf der Download-Seite "27.985.732 Byte"?
+  - Welcher Android-Version + Hersteller?
+  - "Paket ungültig" oder "App nicht installiert"?
+    Das sind zwei verschiedene Fehler mit verschiedenen Ursachen.
+
+
+Made with 💗 — by Maxichen

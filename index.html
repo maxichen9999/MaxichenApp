@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>💗 LoveChat — alles liegt hier</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#43203a;
+    padding:28px 18px 70px;
+    background:
+      radial-gradient(1200px 520px at 12% -8%,#ffe0f1 0%,transparent 62%),
+      radial-gradient(900px 460px at 105% 2%,#f1e2ff 0%,transparent 58%),
+      linear-gradient(172deg,#fff8fc,#fdf1ff 55%,#fff6fb);
+    min-height:100vh;
+  }
+  .wrap{max-width:820px;margin:0 auto}
+  h1{font-size:30px;font-weight:900;line-height:1.15;
+     background:linear-gradient(135deg,#ff4da6,#b06bff);
+     -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:#8b5a76;font-weight:700;font-size:14px;margin:8px 0 24px;line-height:1.6}
+  .card{background:#fff;border:2px solid #ffd9ec;border-radius:22px;padding:20px 22px;
+        box-shadow:0 12px 34px rgba(255,77,166,.14);margin-bottom:18px}
+  .card h2{font-size:16.5px;color:#7b2ff7;margin-bottom:14px;font-weight:900}
+  .files{display:grid;gap:10px}
+  .f{display:flex;align-items:center;gap:13px;padding:12px 14px;border-radius:16px;
+     background:linear-gradient(150deg,#fff,#fff3f9);border:1.5px solid #ffe3f0}
+  .f .ico{font-size:22px;width:30px;text-align:center}
+  .f .txt{flex:1;min-width:0}
+  .f code{font-family:ui-monospace,Consolas,monospace;font-size:13.5px;font-weight:800;
+          color:#c2187a;background:#fff0f8;padding:3px 8px;border-radius:8px}
+  .f small{display:block;font-size:11.5px;color:#a5748f;font-weight:700;margin-top:4px;line-height:1.45}
+  .tag{font-size:10px;font-weight:900;letter-spacing:.04em;padding:4px 9px;border-radius:999px;
+       background:linear-gradient(135deg,#ff4da6,#b06bff);color:#fff;white-space:nowrap}
+  .tag.soft{background:#fff0f8;color:#e6197d;border:1.5px solid #ffd0e8}
+  ol.steps{list-style:none;counter-reset:s}
+  ol.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;
+              font-size:13.5px;line-height:1.6;color:#5d3b52;font-weight:600;
+              border-bottom:1px solid #ffeaf4}
+  ol.steps li:last-child{border-bottom:none}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:9px;width:30px;height:30px;
+    border-radius:50%;background:linear-gradient(135deg,#ff4da6,#b06bff);color:#fff;
+    font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 12px rgba(255,77,166,.4)}
+  pre{background:#2b1229;color:#ffd7ec;padding:14px 16px;border-radius:14px;
+      font-family:ui-monospace,Consolas,monospace;font-size:12.5px;line-height:1.7;overflow-x:auto}
+  pre .c{color:#a5769b}
+  .hint{background:#fff6fb;border-left:4px solid #ff4da6;border-radius:0 14px 14px 0;
+        padding:13px 15px;font-size:13px;line-height:1.65;color:#6d4a63;margin-top:14px}
+  .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+  a.btn{text-decoration:none;font-weight:900;font-size:13px;padding:11px 17px;border-radius:14px;
+        background:linear-gradient(135deg,#ff4da6,#b06bff);color:#fff;
+        box-shadow:0 6px 18px rgba(255,77,166,.4)}
+  a.btn.ghost{background:#fff;color:#e6197d;border:2px solid #ffd9ec;box-shadow:none}
+  .foot{text-align:center;color:#b98aab;font-size:11.5px;font-weight:700;margin-top:26px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>💗 LoveChat — alles liegt hier</h1>
+  <p class="lead">
+    Diese Seite ist deine Startseite im Projektordner. Ganz oben liegen jetzt
+    <code>server.js</code>, <code>pair.js</code> und <code>index.html</code> —
+    Doppelklick genügt. Der eigentliche Code liegt unverändert in
+    <code>server/</code> und <code>client/</code>, damit es nur <b>eine</b> Version gibt.
+  </p>
+
+  <div class="card">
+    <h2>📄 Die Dateien direkt im Hauptordner</h2>
+    <div class="files">
+      <div class="f">
+        <div class="ico">🖥️</div>
+        <div class="txt"><code>server.js</code>
+          <small>Startet den Messenger-Server. Ruft den echten Code in <code>server/server.js</code> auf.</small></div>
+        <span class="tag">START</span>
+      </div>
+      <div class="f">
+        <div class="ico">📱</div>
+        <div class="txt"><code>pair.js</code>
+          <small>Startet die WhatsApp-Brücke. Zweites Fenster, QR-Code scannen.</small></div>
+        <span class="tag">START</span>
+      </div>
+      <div class="f">
+        <div class="ico">💗</div>
+        <div class="txt"><code>index.html</code>
+          <small>Diese Seite hier — die Landkarte des Projekts.</small></div>
+        <span class="tag soft">DU BIST HIER</span>
+      </div>
+      <div class="f">
+        <div class="ico">🪟</div>
+        <div class="txt"><code>START-WINDOWS.bat</code>
+          <small>Windows: doppelklicken → installiert beim ersten Mal die Pakete und startet den Server.</small></div>
+        <span class="tag">WINDOWS</span>
+      </div>
+      <div class="f">
+        <div class="ico">🍎</div>
+        <div class="txt"><code>START-MAC-LINUX.command</code>
+          <small>Mac/Linux: doppelklicken oder <code>./START-MAC-LINUX.command</code> im Terminal.</small></div>
+        <span class="tag">MAC · LINUX</span>
+      </div>
+      <div class="f">
+        <div class="ico">📊</div>
+        <div class="txt"><code>STATUS.md</code> · <code>UEBERSICHT.html</code> · <code>START-HIER.md</code>
+          <small>Geprüfter Stand (1.278 Tests), Landkarte aller Dateien, erste Schritte.</small></div>
+        <span class="tag soft">LESEN</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>▶️ In drei Schritten starten</h2>
+    <ol class="steps">
+      <li><b>Ein Node-Projekt, ein Befehl:</b> <code>npm i</code> → <code>npm start</code><br>
+          <b>Windows:</b> <code>START-WINDOWS.bat</code> doppelklicken — oder im Terminal
+          in <b>diesem</b> Ordner:<br>
+          <b>Mac/Linux:</b> <code>START-MAC-LINUX.command</code> doppelklicken.<br>
+          <span style="color:#a5748f;font-weight:700;font-size:12.5px">(Erster Start dauert ~1 Minute — die Pakete werden installiert.)</span></li>
+      <li>Im schwarzen Fenster erscheint <code>💗 LoveChat läuft!</code> — Fenster <b>offen lassen</b>.</li>
+      <li>Browser öffnen: <code>http://localhost:3900</code></li>
+    </ol>
+    <pre><span class="c"># von Hand im Terminal — im Ordner Lovechat:</span>
+npm i                   <span class="c"># nur beim ALLERSTEN Mal (installiert server/node_modules)</span>
+npm start               <span class="c"># Server starten</span>
+
+<span class="c"># zweites Fenster, nur wenn du WhatsApp verbinden willst:</span>
+npm run pair</pre>
+    <div class="hint" style="margin-top:12px">
+      <b>npm i gehört in diesen Ordner, nicht in <code>server/</code></b> —
+      hier liegt die <code>package.json</code>, und sie installiert die Pakete
+      automatisch eine Ebene tiefer. <code>npm start</code>, <code>npm run pair</code>
+      und <code>npm test</code> funktionieren ebenfalls genau hier.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🗂️ Wo der echte Code liegt</h2>
+    <div class="files">
+      <div class="f"><div class="ico">🧠</div><div class="txt"><code>server/server.js</code>
+        <small>Der komplette Server: alle <code>/api/</code>-Routen, WebSocket, Datenbank. <b>1.944 Zeilen.</b></small></div></div>
+      <div class="f"><div class="ico">🎨</div><div class="txt"><code>client/index.html</code>
+        <small>Die Chat-Seite im Browser: Layout, Farben, alles Pinke. <b>1.002 Zeilen.</b></small></div></div>
+      <div class="f"><div class="ico">⚙️</div><div class="txt"><code>client/app.js</code>
+        <small>Die Logik im Browser: Senden, Anzeigen, Galerie, Töne.</small></div></div>
+      <div class="f"><div class="ico">🌍</div><div class="txt"><code>deploy/downloads/index.html</code>
+        <small>Die Download-Seite für maxichen.de (APK · EXE · iOS).</small></div></div>
+      <div class="f"><div class="ico">🗄️</div><div class="txt"><code>server/data/database.json</code>
+        <small>Die Datenbank: Nutzer, Chats, Nachrichten.</small></div></div>
+    </div>
+    <div class="hint">
+      <b>Warum nicht alles flach in einem Ordner?</b> Weil Server, Oberfläche und
+      Deploy-Ordner getrennt hochgeladen werden müssen — auf dem Webserver landet
+      <code>client/</code> nach <code>/chat/</code>, nicht der Server-Code.
+      Wären alle Dateien gemischt, würdest du beim Hochladen Passwörter und
+      Datenbank mit veröffentlichen. Die zwei Start-Dateien oben sind der
+      Kompromiss: du siehst und startest alles sofort, der Code bleibt sortiert.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🔗 Direkt öffnen</h2>
+    <div class="links">
+      <a class="btn" href="client/index.html">💬 Chat-Seite</a>
+      <a class="btn ghost" href="deploy/downloads/index.html">⬇️ Download-Seite</a>
+      <a class="btn ghost" href="UEBERSICHT.html">🗺️ Landkarte aller Dateien</a>
+      <a class="btn ghost" href="START-HIER.md">🚀 Erste Schritte</a>
+    </div>
+    <div class="hint" style="margin-top:16px">
+      Die Chat-Seite braucht den laufenden Server. Aus dem Datei-Explorer geöffnet
+      sieht sie zwar schön aus, kann aber nicht senden — dafür
+      <code>http://localhost:3900</code> im Browser benutzen.
+    </div>
+  </div>
+
+  <div class="foot">
+    V4.32 · 1.110 Tests · alle grün auf dem Server · by maxi⁹¹⁰ 💗<br>
+    Kein ZIP — dieser Ordner <b>ist</b> das Projekt.
+  </div>
+
+</div>
+</body>
+</html>

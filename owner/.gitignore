@@ -1,0 +1,6 @@
+# 🔒 owner/ — alles Echte bleibt hier, alles Echte ist verboten.
+# Erlaubt sind NUR Vorlagen und diese Dateien selbst.
+*
+!README.md
+!.gitignore
+!*.example

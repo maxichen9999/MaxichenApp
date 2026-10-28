@@ -1,0 +1,63 @@
+# 🔒 NIEMALS ins Repo / ins ZIP / auf GitHub
+# (keys/ wird weiter unten datei-genau geregelt — ein Ordner-Ausschluss
+#  würde die !-Ausnahmen für README und Vorlagen wirkungslos machen)
+*.jks
+*.keystore
+password.txt
+keystore.properties
+.env
+.env.*
+!.env.example
+
+# Laufzeit-Daten (enthalten echte Konten)
+server/data/*.jsonl
+server/data/*.log
+server/data/internal-token.txt
+/server/data/
+
+# Abhängigkeiten & Build (wird neu erzeugt)
+node_modules/
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+ios/.build/
+ios/.swiftpm/
+*.apk.bak
+
+# =====================================================================
+# 🔒 GEHEIM — bei einem Leck kann jemand deine App übernehmen
+# =====================================================================
+# owner/ : alles Echte verboten, nur Vorlagen erlaubt
+/owner/*
+!/owner/README.md
+!/owner/.gitignore
+!/owner/*.example
+
+# keys/  : Release-Key + Passwort
+/keys/*
+!/keys/README.md
+!/keys/.gitignore
+!/keys/*.example
+
+# Namen, unter denen Secrets gerne auftauchen
+*.jks
+*.keystore
+*.p12
+password.txt
+keystore.properties
+credentials.env
+accounts.json
+internal-token.txt
+creds.json
+.env
+.env.*
+!.env.example
+
+# Flutter (V4.20) — Build-Artefakte und lokale Schlüssel
+flutter_app/build/
+flutter_app/.dart_tool/
+flutter_app/.idea/
+flutter_app/android/.gradle/
+flutter_app/.flutter-plugins-dependencies
+flutter_app/*.iml

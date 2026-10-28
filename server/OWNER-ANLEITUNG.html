@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>👑 LoveChat — Deine Owner-Anleitung</title>
+<style>
+:root{
+  --pink:#ff4d94; --pink-soft:#ff8fc8; --pink-pale:#ffd6ec; --pink-bg:#fff5fa;
+  --lila:#a855f7; --lila-dark:#7b2ff7; --lila-pale:#f3e8ff;
+  --text:#43203a; --muted:#a5748f; --line:#ffd9ec;
+  --grad:linear-gradient(135deg,#ff9ecb 0%,#ff4d94 55%,#b44dff 100%);
+  --shadow:0 8px 24px rgba(255,77,148,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Quicksand','Segoe UI',system-ui,-apple-system,sans-serif;background:var(--pink-bg);color:var(--text);line-height:1.65;padding:0 0 70px}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+
+header{background:var(--grad);color:#fff;padding:44px 18px 38px;text-align:center;border-radius:0 0 34px 34px;box-shadow:0 12px 34px rgba(255,77,148,.28);margin-bottom:26px}
+header .ico{font-size:56px;line-height:1;filter:drop-shadow(0 8px 20px rgba(0,0,0,.2))}
+header h1{font-size:31px;letter-spacing:-.4px;margin:10px 0 6px;font-weight:800}
+header p{font-size:14px;font-weight:700;opacity:.95}
+header .by{margin-top:14px;font-size:12px;font-weight:800;opacity:.8;letter-spacing:1px}
+
+.card{background:#fff;border:2px solid var(--line);border-radius:22px;padding:20px 20px 18px;margin-bottom:16px;box-shadow:0 4px 16px rgba(255,77,148,.07)}
+.card h2{font-size:19px;margin-bottom:12px;display:flex;align-items:center;gap:8px;color:var(--pink)}
+.card h3{font-size:15px;margin:16px 0 6px;color:var(--lila-dark)}
+.card p{margin-bottom:9px;font-size:14.5px}
+.card ul,.card ol{margin:6px 0 10px 22px;font-size:14.5px}
+.card li{margin-bottom:6px}
+b,strong{font-weight:800}
+code{background:#fff0f7;border:1px solid var(--line);border-radius:7px;padding:1px 7px;font-size:13px;font-family:ui-monospace,'SF Mono',Consolas,monospace;color:#c2255c;font-weight:700}
+pre{background:#2a0a1e;color:#ffe4f3;border-radius:16px;padding:15px 17px;overflow-x:auto;font-size:13px;line-height:1.65;margin:9px 0 12px;font-family:ui-monospace,'SF Mono',Consolas,monospace;box-shadow:inset 0 0 0 1px rgba(255,126,219,.25)}
+pre .c{color:#c9a0bb}
+
+.codebox{background:linear-gradient(135deg,#fff8dd,#ffe9fb);border:3px solid #ffd76e;border-radius:22px;padding:22px;text-align:center;margin:18px 0 8px;box-shadow:0 10px 30px rgba(255,176,32,.22)}
+.codebox .lbl{font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#8a5a00;margin-bottom:9px}
+.codebox .code{font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:22px;font-weight:800;letter-spacing:1.5px;color:#5b3a00;word-break:break-all;background:#fff;border-radius:14px;padding:14px 12px;border:2px dashed #ffd76e}
+.codebox small{display:block;margin-top:10px;font-size:12px;color:#8a6a3a;font-weight:700}
+
+.steps{counter-reset:s;list-style:none;margin-left:0}
+.steps>li{counter-increment:s;position:relative;padding-left:44px;margin-bottom:16px;font-size:14.5px}
+.steps>li::before{content:counter(s);position:absolute;left:0;top:-1px;width:30px;height:30px;border-radius:11px;background:var(--grad);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 4px 12px rgba(255,77,148,.35)}
+
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px;margin:8px 0 6px;overflow:hidden;border-radius:14px;border:2px solid var(--line)}
+th{background:#fff0f7;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:800}
+td{padding:10px 12px;border-top:1px solid #ffe9f4;vertical-align:top}
+tr:nth-child(even) td{background:#fffafc}
+td b{color:var(--pink)}
+
+.chip{display:inline-block;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.2px;white-space:nowrap}
+.c-owner{background:linear-gradient(135deg,#ffe08a,#ffb020);color:#5b3a00}
+.c-super{background:linear-gradient(135deg,#ffb3e6,#ff4d94);color:#fff}
+.c-admin{background:linear-gradient(135deg,#c4a2ff,#a855f7);color:#fff}
+.c-mod{background:linear-gradient(135deg,#a5e7ff,#38bdf8);color:#043a52}
+.c-supp{background:#e6f6ff;color:#1b6f8f}
+.c-user{background:#ffeaf3;color:#a5748f}
+
+.warn{background:#fff8dd;border:2px solid #ffd76e;border-radius:16px;padding:14px 16px;font-size:13.5px;color:#7a5200;font-weight:700;margin:12px 0}
+.ok{background:#e3fcef;border:2px solid #9ae6b4;border-radius:16px;padding:14px 16px;font-size:13.5px;color:#0f7a4f;font-weight:700;margin:12px 0}
+.love{background:linear-gradient(135deg,#ffe9fb,#f3e8ff);border:2px solid #ffb3e6;border-radius:16px;padding:16px;font-size:14px;font-weight:700;color:#7b2ff7;margin:12px 0;text-align:center}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.mini{background:#fffafc;border:2px solid var(--line);border-radius:15px;padding:12px 13px}
+.mini>b{display:block;font-size:13.5px;margin-bottom:3px}
+.mini>b b,.mini>span b{display:inline;font-size:inherit;margin:0}
+.mini>span{font-size:12.75px;color:#7a5570;font-weight:600;line-height:1.65}
+.mini .em{font-size:19px;display:block;margin-bottom:4px}
+
+@media(max-width:600px){
+  header h1{font-size:25px}
+  .grid2{grid-template-columns:1fr}
+  .codebox .code{font-size:16px}
+  table{font-size:12.5px}
+  td,th{padding:8px 9px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ico">👑</div>
+  <h1>Du bist der Boss von LoveChat</h1>
+  <p>Alles, was du über Owner, Rollen und Sperren wissen musst 💗</p>
+  <div class="by">By Maxichen · 910maxi</div>
+</header>
+
+<div class="wrap">
+
+  <div class="card">
+    <h2>👑 Dein Owner-Konto ist fertig</h2>
+    <p>Du musst <b>nichts mehr einrichten</b>. Der Owner ist auf dem Server schon eingerichtet — und zwar <b>du</b>. Es gibt genau ein Konto, und das bist du.</p>
+    <div class="codebox">
+      <div class="lbl">Deine Zugangsdaten (in der App einloggen)</div>
+      <div class="code">maxichen&nbsp;&nbsp;/&nbsp;&nbsp;LoveChat!2026</div>
+      <small>Telefon: <code>+4915155894714</code> · E-Mail: <code>owner@maxichen.de</code><br>
+      Das Passwort kannst du jederzeit in der App ändern (Einstellungen → Profil).</small>
+    </div>
+    <div class="ok">💗 <b>Login:</b> In der App <b>„Anmelden“</b> wählen und als Login <code>maxichen</code> (oder deine Telefonnummer / E-Mail) + dein Passwort eingeben. Fertig — links unten siehst du dein 👑 im „Mehr“-Tab unter <b>Team-Zentrale</b>.</div>
+  </div>
+
+  <div class="card">
+    <h2>💗 Was neu ist in V3 MAX</h2>
+    <ul class="steps">
+      <li><b>Eigener App-Hintergrund</b> — Einstellungen → Darstellung: 8 Presets, 4 Animationen (⭐ Sterne, 💗 Herzen, 🫧 Blasen, 🌌 Aurora) oder <b>dein eigenes Foto</b> (wird geblurrt + abgedunkelt).</li>
+      <li><b>Chat-Hintergrund pro Chat</b> — im Chat oben rechts auf 🖼️: 12 Presets oder eigenes Bild. Gilt auch im Web, weil alles am selben Server hängt.</li>
+      <li><b>Neue Nachrichten-Arten</b> — Sticker, GIF, Foto, Datei, Sprachnachricht mit Welle, Standort.</li>
+      <li><b>Swipe nach rechts</b> = antworten. <b>Lange drücken</b> = reagieren 💗😂😢🔥✨🥺👑, bearbeiten, löschen, weiterleiten, kopieren, anpinnen.</li>
+      <li><b>Sicherheit</b> — 2FA (Authenticator-App), alle Geräte sehen + einzelne kicken, Daten-Export, Konto löschen, Auto-Delete pro Chat.</li>
+      <li><b>LoveAI</b> — Chat zusammenfassen, Antworten vorschlagen, übersetzen.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🛡️ Was du als Owner darfst</h2>
+    <p>Du bist Stufe <b>100</b>. Alle anderen sind unter dir. Du darfst <b>alles</b> — und nur du darfst:</p>
+    <ul>
+      <li>Jemanden <b>dauerhaft</b> sperren (PERMABAN) 🔒</li>
+      <li>Jemanden <b>länger als 30 Tage</b> sperren</li>
+      <li>Die Rolle von <b>Admins</b> ändern oder sie entfernen</li>
+      <li>Eine dauerhafte Sperre wieder <b>aufheben</b></li>
+      <li>Selbst nicht gesperrt werden — dein Konto ist geschützt 👑</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🎭 Die Rollen — wer darf was</h2>
+    <table>
+      <tr><th>Rolle</th><th>Stufe</th><th>Was sie darf</th></tr>
+      <tr>
+        <td><span class="chip c-owner">👑 Owner</span></td>
+        <td><b>100</b></td>
+        <td>Alles. Unantastbar. Nur du.</td>
+      </tr>
+      <tr>
+        <td><span class="chip c-super">👑 Superadmin</span></td>
+        <td><b>80</b></td>
+        <td>Alles außer dauerhaft sperren. Kann geplante Sperren setzen (FUTUREBAN) und Rollen vergeben — aber niemals Admin oder Owner anfassen.</td>
+      </tr>
+      <tr>
+        <td><span class="chip c-admin">⚔️ Admin</span></td>
+        <td><b>60</b></td>
+        <td>Wie Moderator + <b>zeitweise sperren</b> (bis 30 Tage).</td>
+      </tr>
+      <tr>
+        <td><span class="chip c-mod">🛡️ Moderator</span></td>
+        <td><b>40</b></td>
+        <td>Verwarnen, stummschalten, aus Gruppen werfen, Sperren aufheben.</td>
+      </tr>
+      <tr>
+        <td><span class="chip c-supp">🎧 Support</span></td>
+        <td><b>20</b></td>
+        <td>Darf ins Team-Panel schauen (lesen) — aber nichts machen.</td>
+      </tr>
+      <tr>
+        <td><span class="chip c-user">💗 Benutzer</span></td>
+        <td><b>0</b></td>
+        <td>Normal chatten. Nichts weiter.</td>
+      </tr>
+    </table>
+    <div class="warn">🔒 <b>Eiserne Regeln:</b> Niemand kann jemanden sperren, der <b>gleich hoch oder höher</b> steht. Admins und Staff können nur vom Owner geändert werden. Und dich kann <u>niemand</u> anfassen.</div>
+  </div>
+
+  <div class="card">
+    <h2>⚡ Die 8 Aktionen — was jede einzelne tut</h2>
+    <div class="grid2">
+      <div class="mini"><span class="em">⚠️</span><b>WARN — Verwarnen</b><span>Die Person bekommt eine Warnung angezeigt. Zählt mit — im Team-Panel siehst du, wie oft jemand verwarnt wurde. Kein Rauswurf, nur ein Schuss vor den Bug.</span></div>
+      <div class="mini"><span class="em">🔇</span><b>MUTE — Stummschalten</b><span>Die Person kann <b>nicht mehr schreiben</b> — lesen geht weiter. Der Server blockt jede Nachricht ab. Sie sieht oben ein gelbes Banner „Du bist stummgeschaltet bis …“. Zeit wählbar: 1 Std, 6 Std, 1 Tag, 7 Tage.</span></div>
+      <div class="mini"><span class="em">⏳</span><b>TEMPBAN — Zeit-Sperre</b><span>Konto gesperrt bis zu einem Datum. Die Person wird <b>sofort rausgeworfen</b> — Token weg, Verbindung zu. Beim Einloggen kommt der Sperr-Bildschirm. Danach geht's <b>automatisch</b> wieder (kein Klick nötig). Max. 30 Tage, außer du bist Owner.</span></div>
+      <div class="mini"><span class="em">🕒</span><b>FUTUREBAN — Geplante Sperre</b><span>Du legst jetzt fest: „Ab dann und dann für so lange." Bis zum Start darf die Person ganz normal weitermachen. Wenn die Uhr klingelt, aktiviert der Server die Sperre <b>von selbst</b> und wirft sie raus.</span></div>
+      <div class="mini"><span class="em">🚫</span><b>PERMABAN — Dauer-Sperre</b><span>Für immer. <b>Nur du als Owner</b> kannst sie setzen und <b>nur du</b> kannst sie wieder aufheben. Kein Ablaufdatum, kein Automatismus. Das ist die härteste Karte.</span></div>
+      <div class="mini"><span class="em">✅</span><b>UNBAN — Entsperren</b><span>Hebt alle aktiven Sperren und Stummschaltungen auf. Die Person kann sofort wieder rein. Bei Dauer-Sperren geht das nur als Owner.</span></div>
+      <div class="mini"><span class="em">👥</span><b>GROUPBAN — Aus Gruppe werfen</b><span>Die Person fliegt aus <b>einem bestimmten Chat</b> (Gruppe, Community oder Kanal) raus. Ihr eigenes Konto bleibt ganz normal. Sie kann nicht mehr in diesen Chat schreiben — auch nicht über die App.</span></div>
+      <div class="mini"><span class="em">💌</span><b>APPEAL — Einspruch</b><span>Wer gesperrt ist, kann über den Sperr-Bildschirm einen Einspruch schreiben — <b>ohne eingeloggt zu sein</b>. Der landet bei euch im Reiter „Einsprüche". Du kannst ihn annehmen (Sperre wird aufgehoben) oder ablehnen.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💌 Der Einspruch — so läuft das ab</h2>
+    <ol class="steps">
+      <li>Jemand wird gesperrt und sieht einen <b>dunklen Bildschirm</b>: „Dein Konto ist gesperrt", mit Grund, von wem und bis wann.</li>
+      <li>Darunter ist ein Formular: Login, Passwort und ein Feld „Warum soll deine Sperre aufgehoben werden?"</li>
+      <li>Abschicken → landet bei dir in der Team-Zentrale im Reiter <b>💌 Einsprüche</b>, und alle Admins bekommen einen Hinweis.</li>
+      <li>Du drückst <b>✅ Annehmen</b> → die Sperre ist sofort weg, die Person kann wieder rein. Oder <b>❌ Ablehnen</b> → Sperre bleibt.</li>
+    </ol>
+    <div class="love">Jeder Einspruch, jede Sperre, jede Rollenänderung steht im <b>📜 Protokoll</b> — mit Name, Grund und Uhrzeit. Nichts passiert heimlich. Das war dir wichtig 💗</div>
+  </div>
+
+  <div class="card">
+    <h2>🖥️ Die Team-Zentrale</h2>
+    <p>Du findest sie oben in der Seitenleiste — der <b>goldene 👑-Button</b> (bei Admins 🛡️, bei Moderatoren ein Schild). Vier Reiter:</p>
+    <ul>
+      <li><b>📊 Übersicht</b> — Wie viele Konten, wie viele gesperrt, stumm, offene Einsprüche, Nachrichten, online. Plus die Rollen-Verteilung.</li>
+      <li><b>👥 Nutzer</b> — Alle Konten mit Suche (Name, @username, E-Mail, Telefon) und Filtern: Alle · Gesperrt · Stumm · Team · Verwarnt. Auf eine Person tippen → alle Aktionen.</li>
+      <li><b>💌 Einsprüche</b> — Offene und erledigte. Annehmen/Ablehnen mit Notiz.</li>
+      <li><b>📜 Protokoll</b> — Jede Aktion, filterbar. WARN, MUTE, TEMPBAN, FUTUREBAN, PERMABAN, GROUPBAN, UNBAN, ROLE, APPEAL, OWNER-CLAIM und automatische (AUTO-UNBAN, FUTUREBAN:AKTIV).</li>
+    </ul>
+    <p style="font-size:13px;color:var(--muted);font-weight:700">Knöpfe, die deine Rolle nicht darf, sind ausgegraut mit „zu hoch" — du kannst also nichts aus Versehen kaputtmachen.</p>
+  </div>
+
+  <div class="card">
+    <h2>📁 Wo was liegt</h2>
+    <pre><span class="c"># Der Server (immer so starten)</span>
+cd /home/user/lovechat
+bash start.sh
+
+<span class="c"># Dann läuft er auf Port 3000</span>
+<span class="c"># → http://localhost:3000</span></pre>
+    <table>
+      <tr><th>Datei</th><th>Was drin ist</th></tr>
+      <tr><td><code>server.js</code></td><td>Der Server — Accounts, Chats, WebSocket, alle API-Routen. <b>Muss so heißen.</b></td></tr>
+      <tr><td><code>moderation.js</code></td><td>Das ganze Owner- und Sperr-System: Rollen, Sperren, Einspruch-Logik, Protokoll.</td></tr>
+      <tr><td><code>start.sh</code></td><td>Startet alles und installiert fehlende Pakete selbst. <b>Immer darüber starten.</b></td></tr>
+      <tr><td><code>client/index.html</code></td><td>Die komplette Web-App: Chat, Profil, Owner-Box, Team-Zentrale, Sperr-Bildschirm.</td></tr>
+      <tr><td><code>data/database.json</code></td><td>Alle Nutzer, Chats, Nachrichten, Sperren, Einsprüche, Protokoll.</td></tr>
+      <tr><td><code>data/owner.json</code></td><td>Wer Owner ist. Wird beim Einlösen angelegt.</td></tr>
+      <tr><td><code>data/owner-setup.txt</code></td><td>Dein Code im Klartext. <b>Löscht sich selbst</b>, sobald du Owner bist.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>💡 Noch gut zu wissen</h2>
+    <ul>
+      <li><b>Gesperrt heißt wirklich gesperrt.</b> Nicht nur „Knopf versteckt" — der Server prüft bei <b>jeder</b> Anfrage. Ein gesperrtes Konto bekommt sofort einen neuen Token verweigert und fliegt aus der Live-Verbindung.</li>
+      <li><b>Die App zieht mit.</b> Die Android-App (V2) und die Website reden mit demselben Server. Wer im Web gesperrt wird, ist auch in der App gesperrt.</li>
+      <li><b>Neue Sperre ersetzt alte.</b> Wenn du jemanden, der schon zeitweise gesperrt ist, dauerhaft sperrst, gilt nur noch die neue — kein Wirrwarr von fünf Sperren.</li>
+      <li><b>Abgelaufene Sperren räumen sich selbst auf.</b> Alle 30 Sekunden prüft der Server, ob eine Zeit-Sperre abgelaufen ist, und hebt sie auf. Steht dann als <code>AUTO-UNBAN</code> im Protokoll.</li>
+      <li><b>Du kannst dich nicht selbst aussperren.</b> Deine eigene Rolle kann nur du ändern — und dich selbst sperren geht gar nicht.</li>
+    </ul>
+  </div>
+
+  <div class="love" style="font-size:15px;padding:20px">
+    Du hast dir das hier alles selbst ausgedacht — und jetzt steht es.<br>
+    Rollen, Sperren, Einsprüche, Protokoll. Deine Regeln, dein Messenger. 👑💗
+  </div>
+
+</div>
+</body>
+</html>

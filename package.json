@@ -1,0 +1,23 @@
+{
+  "name": "lovechat",
+  "version": "4.27.0",
+  "private": true,
+  "description": "LoveChat 💗 — dein eigener pinker Messenger, by maxi⁹¹⁰",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "pair": "node pair.js",
+    "test": "node tests/v429test.js && node tests/v413test.js && node tests/totp-vectors.js && node tests/backup-format.js && node tests/v416test.js && node tests/v417test.js && node tests/v418test.js && node tests/v419test.js && node tests/v420test.js && node tests/v420sec-live.js && node tests/v421test.js && node tests/v422test.js && node tests/v423test.js && node tests/v425test.js && node tests/v426test.js && node tests/v427test.js && node tests/v428test.js && node tests/v430test.js && node tests/v431test.js && node tests/v432test.js",
+    "karte": "python3 tools/uebersicht.py"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "express": "^4.22.3",
+    "nodemailer": "^10.2.1",
+    "qrcode-terminal": "^0.12.0",
+    "ws": "^8.22.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lovechat — wo ist welche Datei?</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:26px 18px 60px;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+       color:#43203a;background:
+         radial-gradient(1200px 500px at 15% -10%,#ffe3f3 0%,transparent 60%),
+         radial-gradient(900px 420px at 100% 0%,#f0e4ff 0%,transparent 55%),
+         linear-gradient(170deg,#fff8fc,#fdf2ff 60%,#fff6fb)}
+  h1{font-size:27px;margin:0 0 4px;background:linear-gradient(135deg,#ff4da6,#b06bff);
+     -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900}
+  .sub{color:#a5748f;font-weight:700;font-size:13px;margin-bottom:20px}
+  .card{background:#fff;border:2px solid #ffd9ec;border-radius:20px;padding:18px 20px;
+        box-shadow:0 10px 30px rgba(255,77,166,.13);margin-bottom:18px}
+  .card h2{font-size:16px;margin:0 0 12px;color:#7b2ff7}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+     color:#b98aab;padding:0 8px 8px;font-weight:900}
+  td{padding:9px 8px;border-top:1px solid #ffeaf4;vertical-align:top}
+  tr:first-child td{border-top:none}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;color:#c2187a;
+       background:#fff2f9;padding:2px 6px;border-radius:7px;display:inline-block}
+  .sz{display:block;font-size:10.5px;color:#b98aab;margin-top:3px;font-family:inherit}
+  .p{color:#6d4a63}
+  .num{text-align:right;font-variant-numeric:tabular-nums;color:#6d4a63;white-space:nowrap}
+  .miss td{background:#fff0f0}
+  .big{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+  .kpi{flex:1 1 150px;background:linear-gradient(150deg,#fff,#ffeaf6);border:2px solid #ffd9ec;
+       border-radius:18px;padding:14px 16px}
+  .kpi b{display:block;font-size:23px;color:#e6197d;font-weight:900}
+  .kpi span{font-size:11.5px;color:#a5748f;font-weight:800}
+  pre{background:#2b1229;color:#ffd7ec;padding:14px 16px;border-radius:14px;overflow-x:auto;
+      font-size:12px;line-height:1.55;margin:0}
+  .hint{background:#fff6fb;border-left:4px solid #ff4da6;border-radius:0 12px 12px 0;
+        padding:12px 14px;font-size:13px;line-height:1.6;color:#6d4a63}
+  .ok{color:#0a8f5d;font-weight:900}
+</style>
+</head>
+<body>
+<h1>💗 Lovechat — wo ist welche Datei?</h1>
+<div class="sub">Stand 27.10.2026 · alle Zahlen direkt aus dem Ordner gezählt, nichts geschätzt</div>
+
+<div class="big">
+  <div class="kpi"><b>475</b><span>Dateien im Projekt</span></div>
+  <div class="kpi"><b>102,7 MB</b><span>Gesamtgröße</span></div>
+  <div class="kpi"><b>9/9</b><span>der gesuchten Dateien<br>wirklich auf der Platte</span></div>
+</div>
+
+<div class="card">
+  <h2>⭐ Die sechs Dateien, nach denen du gesucht hast</h2>
+  <table>
+    <tr><th>Pfad (ab <code>Lovechat/</code>)</th><th>Was drin ist</th></tr>
+    <tr><td><code>server.js</code><span class="sz">1,4 KB = 1.395 B · 37 Zeilen</span></td><td class="p">START: Messenger-Server starten (ruft server/server.js auf, keine zweite Kopie)</td></tr>
+<tr><td><code>pair.js</code><span class="sz">946 B = 946 B · 28 Zeilen</span></td><td class="p">START: WhatsApp-Brücke starten (ruft server/pair.js auf)</td></tr>
+<tr><td><code>index.html</code><span class="sz">9,4 KB = 9.640 B · 183 Zeilen</span></td><td class="p">Diese Startseite: Landkarte des Projekts, 3 Schritte zum Starten</td></tr>
+<tr><td><code>server/server.js</code><span class="sz">84,7 KB = 86.765 B · 2.133 Zeilen</span></td><td class="p">Der Messenger-Server: alle /api/-Routen, WebSocket, Datenbank</td></tr>
+<tr><td><code>server/pair.js</code><span class="sz">13,2 KB = 13.500 B · 349 Zeilen</span></td><td class="p">WhatsApp-Brücke: verbindet WhatsApp mit LoveChat (QR-Pairing)</td></tr>
+<tr><td><code>client/index.html</code><span class="sz">78,5 KB = 80.389 B · 1.038 Zeilen</span></td><td class="p">DIE Chat-Seite: Layout + komplette Gestaltung (pink/lila)</td></tr>
+<tr><td><code>client/app.js</code><span class="sz">183,1 KB = 187.492 B · 3.916 Zeilen</span></td><td class="p">Die Chat-Logik im Browser: Senden, Anzeigen, Klingeltöne, alles</td></tr>
+<tr><td><code>deploy/downloads/index.html</code><span class="sz">7,8 KB = 7.992 B · 174 Zeilen</span></td><td class="p">Die pinke Download-Seite für maxichen.de</td></tr>
+<tr><td><code>server/data/database.json</code><span class="sz">1,1 MB = 1.165.991 B · 1 Zeilen</span></td><td class="p">Die Datenbank (JSON). Hier liegen Nutzer, Chats, Nachrichten</td></tr>
+  </table>
+  <div class="hint" style="margin-top:14px">
+    <b>Wichtig:</b> <code>server.js</code> und <code>pair.js</code> liegen im Unterordner
+    <code>server/</code>, die Chat-Seite im Unterordner <code>client/</code>.
+    Es gibt <b>keine</b> Kopie im Hauptordner — das ist Absicht: Server, Oberfläche
+    und Deploy sind getrennt, damit man den Server einzeln hochladen kann.
+  </div>
+</div>
+
+<div class="card">
+  <h2>📁 Alle Ordner</h2>
+  <table>
+    <tr><th>Ordner</th><th class="num">Dateien</th><th class="num">Größe</th></tr>
+    <tr><td><code>beweis</code></td><td class="num">109 Dateien</td><td class="num">53,4 MB</td></tr>
+<tr><td><code>client</code></td><td class="num">69 Dateien</td><td class="num">40,4 MB</td></tr>
+<tr><td><code>deploy</code></td><td class="num">66 Dateien</td><td class="num">5,3 MB</td></tr>
+<tr><td><code>server</code></td><td class="num">43 Dateien</td><td class="num">1,7 MB</td></tr>
+<tr><td><code>android</code></td><td class="num">100 Dateien</td><td class="num">1,1 MB</td></tr>
+<tr><td><code>tests</code></td><td class="num">30 Dateien</td><td class="num">364,2 KB</td></tr>
+<tr><td><code>(direkt im Hauptordner)</code></td><td class="num">13 Dateien</td><td class="num">221,9 KB</td></tr>
+<tr><td><code>ios</code></td><td class="num">17 Dateien</td><td class="num">128,8 KB</td></tr>
+<tr><td><code>tools</code></td><td class="num">12 Dateien</td><td class="num">81,0 KB</td></tr>
+<tr><td><code>keys</code></td><td class="num">7 Dateien</td><td class="num">9,0 KB</td></tr>
+<tr><td><code>owner</code></td><td class="num">6 Dateien</td><td class="num">8,3 KB</td></tr>
+<tr><td><code>windows</code></td><td class="num">3 Dateien</td><td class="num">2,3 KB</td></tr>
+  </table>
+  <div class="sz" style="margin-top:10px">
+    <code>server/node_modules</code> ist absichtlich nicht mitgezählt (wird mit
+    <code>npm install</code> neu erzeugt).
+  </div>
+</div>
+
+<div class="card">
+  <h2>📜 Die wichtigsten weiteren Dateien</h2>
+  <table>
+    <tr><th>Pfad</th><th>Zweck</th></tr>
+    <tr><td><code>BUILD-APK-EXE-IPA.md</code><span class="sz">2,2 KB = 2.284 B · 51 Zeilen</span></td><td class="p">Wie du APK, EXE und IPA auf deinem PC baust</td></tr>
+<tr><td><code>DEPLOY-ANLEITUNG.txt</code><span class="sz">7,0 KB = 7.128 B · 204 Zeilen</span></td><td class="p">Kurzfassung des Deploys</td></tr>
+<tr><td><code>START-HIER.md</code><span class="sz">15,5 KB = 15.904 B · 438 Zeilen</span></td><td class="p">Erste Schritte — hier anfangen</td></tr>
+<tr><td><code>START-MAC-LINUX.command</code><span class="sz">500 B = 500 B · 18 Zeilen</span></td><td class="p">Mac/Linux: Doppelklick oder ./START-MAC-LINUX.command</td></tr>
+<tr><td><code>START-WINDOWS.bat</code><span class="sz">455 B = 455 B · 24 Zeilen</span></td><td class="p">Windows: Doppelklick → installiert Pakete und startet den Server</td></tr>
+<tr><td><code>STATUS.md</code><span class="sz">92,8 KB = 95.063 B · 1.843 Zeilen</span></td><td class="p">Der geprüfte Stand: jede Zahl mit Prüfmethode (1.110 Tests)</td></tr>
+<tr><td><code>UEBERSICHT.html</code><span class="sz">13,5 KB = 13.804 B · 159 Zeilen</span></td><td class="p">Landkarte aller Dateien mit echten Größen (dieses Skript erzeugt sie)</td></tr>
+<tr><td><code>client/downloads.html</code><span class="sz">17,3 KB = 17.683 B · 358 Zeilen</span></td><td class="p">Die Download-Seite (wird zu deploy/downloads/index.html)</td></tr>
+<tr><td><code>client/manifest.webmanifest</code><span class="sz">676 B = 676 B · 17 Zeilen</span></td><td class="p">App-Name, Symbole, Farben für „Zum Startbildschirm"</td></tr>
+<tr><td><code>client/sw.js</code><span class="sz">1,8 KB = 1.855 B · 51 Zeilen</span></td><td class="p">Service-Worker: macht die Seite als App installierbar</td></tr>
+<tr><td><code>client/v427.js</code><span class="sz">19,9 KB = 20.428 B · 454 Zeilen</span></td><td class="p">V4.27 Oberfläche: Medien-Blatt (Datei, Galerie, GIFs, Speicher)</td></tr>
+<tr><td><code>client/v432.js</code><span class="sz">7,4 KB = 7.597 B · 167 Zeilen</span></td><td class="p">V4.32: Befehls-Palette über dem Eingabefeld</td></tr>
+<tr><td><code>deploy/DEPLOY.md</code><span class="sz">6,8 KB = 6.941 B · 195 Zeilen</span></td><td class="p">Schritt-für-Schritt-Anleitung zum Hochladen</td></tr>
+<tr><td><code>deploy/chat/index.html</code><span class="sz">78,5 KB = 80.389 B · 1.038 Zeilen</span></td><td class="p">Die Chat-Seite, fertig zum Hochladen auf den Server</td></tr>
+<tr><td><code>deploy/downloads/prepare.sh</code><span class="sz">1,4 KB = 1.455 B · 37 Zeilen</span></td><td class="p">Kopiert APK/EXE in downloads/ und schreibt SHA256SUMS.txt</td></tr>
+<tr><td><code>deploy/nginx-maxichen.de.conf</code><span class="sz">5,6 KB = 5.697 B · 150 Zeilen</span></td><td class="p">nginx-Konfiguration: APK-Endung, /downloads/, /chat/, /api/</td></tr>
+<tr><td><code>package.json</code><span class="sz">1,0 KB = 1.060 B · 23 Zeilen</span></td><td class="p">DIE eine Paketdatei: npm i / npm start / npm run pair / npm test</td></tr>
+<tr><td><code>server/.env.example</code><span class="sz">1,3 KB = 1.298 B · 37 Zeilen</span></td><td class="p">Vorlage für Zugangsdaten — kopieren nach .env und ausfüllen</td></tr>
+<tr><td><code>server/accounts.js</code><span class="sz">15,1 KB = 15.477 B · 382 Zeilen</span></td><td class="p">Multi-Account (max 5), Telefon-Nummern</td></tr>
+<tr><td><code>server/e2e.js</code><span class="sz">14,3 KB = 14.656 B · 333 Zeilen</span></td><td class="p">Ende-zu-Ende-Verschlüsselung (X3DH, Doppel-Ratchet)</td></tr>
+<tr><td><code>server/security.js</code><span class="sz">20,4 KB = 20.892 B · 528 Zeilen</span></td><td class="p">Datenschutz-Schalter, Einmal-Medien, Login-Schutz</td></tr>
+<tr><td><code>server/signup.js</code><span class="sz">19,2 KB = 19.627 B · 488 Zeilen</span></td><td class="p">Registrierung, E-Mail-Code</td></tr>
+<tr><td><code>server/twofa.js</code><span class="sz">8,6 KB = 8.854 B · 238 Zeilen</span></td><td class="p">2FA (TOTP) — Pflicht für Owner und Bot</td></tr>
+<tr><td><code>server/v4.js</code><span class="sz">32,2 KB = 32.952 B · 794 Zeilen</span></td><td class="p">V4 Block: Momente, Umfragen, Planung, Blocken, LoveBot</td></tr>
+<tr><td><code>server/v419.js</code><span class="sz">23,0 KB = 23.592 B · 417 Zeilen</span></td><td class="p">V4.19 30 Töne, 6 Sticker-Packs, 3 Hintergründe, VIP</td></tr>
+<tr><td><code>server/v423.js</code><span class="sz">12,3 KB = 12.624 B · 292 Zeilen</span></td><td class="p">V4.23 Anrufe-Verlauf, Kanäle, /api/home</td></tr>
+<tr><td><code>server/v425.js</code><span class="sz">20,2 KB = 20.647 B · 476 Zeilen</span></td><td class="p">V4.25 Offizieller Lovechen-Kanal (verifiziert)</td></tr>
+<tr><td><code>server/v426.js</code><span class="sz">25,3 KB = 25.957 B · 526 Zeilen</span></td><td class="p">V4.26 Sicherheit + Töne: 40 Töne, Backup, Sicherheitscode, App-Sperre</td></tr>
+<tr><td><code>server/v427.js</code><span class="sz">18,6 KB = 19.011 B · 435 Zeilen</span></td><td class="p">V4.27 Medien: Upload auf die Platte, Galerie, GIFs, Speicher, Migration</td></tr>
+<tr><td><code>server/v428.js</code><span class="sz">22,4 KB = 22.966 B · 585 Zeilen</span></td><td class="p">V4.28 Anmeldung wie WhatsApp: Nummer, Code, Profil — plus Owner-Erkennung (V4.29)</td></tr>
+<tr><td><code>server/v430.js</code><span class="sz">13,4 KB = 13.744 B · 334 Zeilen</span></td><td class="p">V4.30 Konto löschen, 20 Nachrichten/Min, Spam, Melden mit 5 Nachrichten</td></tr>
+<tr><td><code>server/v432.js</code><span class="sz">16,6 KB = 17.014 B · 404 Zeilen</span></td><td class="p">V4.32 Bot-Befehle (/ping … /erinnere), Rechner ohne eval, Erinnerungen</td></tr>
+<tr><td><code>server/vip.js</code><span class="sz">6,7 KB = 6.841 B · 163 Zeilen</span></td><td class="p">V4.29 VIP anhand der Telefonnummer (Datei + ENV + Owner-Nummer)</td></tr>
+<tr><td><code>tests/v429test.js</code><span class="sz">14,2 KB = 14.564 B · 276 Zeilen</span></td><td class="p">V4.29: Owner+VIP an der Nummer, App-Reste, Aufräum-Werkzeug (44 Prüfungen)</td></tr>
+<tr><td><code>tests/v430test.js</code><span class="sz">15,1 KB = 15.440 B · 300 Zeilen</span></td><td class="p">V4.30: Limits, Spam, Melden, Konto löschen, Ban/Unban (54 Prüfungen)</td></tr>
+<tr><td><code>tests/v432test.js</code><span class="sz">14,6 KB = 14.935 B · 302 Zeilen</span></td><td class="p">V4.32: 68 Prüfungen für Befehle, Erinnerungen, Grenzen, Oberfläche</td></tr>
+<tr><td><code>tools/reset-users.js</code><span class="sz">4,7 KB = 4.822 B · 130 Zeilen</span></td><td class="p">Alle Nutzer löschen — Owner-Nummer bleibt vorgemerkt (mit Sicherung)</td></tr>
+<tr><td><code>tools/restore-toolchain.sh</code><span class="sz">4,3 KB = 4.389 B · 90 Zeilen</span></td><td class="p">Holt JDK/Android/Swift zurück nach einem Reset</td></tr>
+<tr><td><code>tools/serve-deploy.py</code><span class="sz">2,2 KB = 2.220 B · 60 Zeilen</span></td><td class="p">Bildet die nginx-Regeln lokal nach (für Tests ohne Server)</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>▶️ So startest du es</h2>
+  <pre>cd Lovechat
+npm i        # nur beim allerersten Mal — alles landet in Lovechat/node_modules
+npm start    # Server auf http://localhost:3900</pre>
+  <pre style="margin-top:10px">npm run pair   # WhatsApp-Brücke (eigenes Fenster, QR-Code scannen)
+npm test       # alle Tests</pre>
+</div>
+
+<div class="card">
+  <h2>🔍 Selbst nachzählen</h2>
+  <pre>cd Lovechat
+ls server/server.js server/pair.js client/index.html     # müssen alle drei erscheinen
+wc -l server/server.js server/pair.js client/index.html
+python3 tools/uebersicht.py                              # diese Seite neu erzeugen</pre>
+</div>
+
+</body>
+</html>

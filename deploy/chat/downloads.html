@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Downloads — MaxiChat</title>
+<meta name="description" content="MaxiChat herunterladen: Android-APK sofort. iOS und Windows: hier steht ehrlich, warum es sie noch nicht gibt.">
+<meta name="theme-color" content="#FF5FA8">
+<style>
+:root{
+  --bg:#FFF5F7; --card:#FFFFFF; --ink:#2B1A2E; --soft:#8B7A93;
+  --pink:#FF5FA8; --pink-soft:#FFE3F0; --lila:#A97BFF; --line:#F0E3EA;
+  --green:#3BBE7A; --danger:#E8546E; --gold:#E9A93B;
+  --radius:22px; --shadow:0 6px 24px rgba(255,95,168,.10), 0 2px 8px rgba(169,123,255,.08);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:940px;margin:0 auto;padding:34px 20px 70px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:18px;letter-spacing:-.2px;text-decoration:none}
+.logo{
+  width:38px;height:38px;border-radius:13px;display:grid;place-items:center;font-size:19px;
+  background:linear-gradient(145deg,var(--pink),var(--lila));color:#fff;box-shadow:var(--shadow);
+}
+.btn-back{
+  font-size:13px;font-weight:700;text-decoration:none;color:var(--soft);
+  border:1.5px solid var(--line);background:#fff;padding:9px 16px;border-radius:14px;
+}
+.btn-back:hover{border-color:var(--pink);color:var(--pink)}
+
+h1{font-size:clamp(30px,5.4vw,44px);line-height:1.1;letter-spacing:-1.2px;margin:0 0 12px}
+h1 .grad{background:linear-gradient(115deg,var(--pink),var(--lila));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--soft);font-size:16px;max-width:640px;margin:0 0 30px}
+
+.card{
+  background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow);margin-bottom:18px;position:relative;overflow:hidden;
+}
+.card.ok{border-color:#DFF4E9}
+.card.soon{border-color:#FDEAEC}
+.card::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--line)}
+.card.ok::before{background:var(--green)}
+.card.soon::before{background:var(--gold)}
+.card-head{display:flex;align-items:flex-start;gap:15px;flex-wrap:wrap;margin-bottom:6px}
+.os{
+  width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:25px;flex:0 0 auto;
+  background:var(--pink-soft);
+}
+.os.grey{background:#F4F1F5}
+.os-title{font-size:19px;font-weight:800;letter-spacing:-.3px;margin:0}
+.os-sub{font-size:13px;color:var(--soft);margin:2px 0 0}
+.pill{
+  font-size:11px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;
+  padding:5px 11px;border-radius:999px;margin-left:auto;white-space:nowrap;
+}
+.pill.green{background:#E4F7EC;color:#1E8A54}
+.pill.gold{background:#FCF0DA;color:#95671A}
+.pill.grey{background:#F1EEF3;color:#6E6279}
+
+.btn{
+  display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:15px;text-decoration:none;
+  padding:14px 24px;border-radius:16px;border:0;cursor:pointer;margin:14px 10px 0 0;
+}
+.btn-primary{background:linear-gradient(135deg,var(--pink),var(--lila));color:#fff;box-shadow:0 8px 22px rgba(255,95,168,.32)}
+.btn-primary:hover{filter:brightness(1.04)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--pink);color:var(--pink)}
+.btn[aria-disabled="true"]{background:#F4F1F5;color:#A99FB0;box-shadow:none;cursor:not-allowed;pointer-events:none}
+
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.tag{font-size:12px;color:var(--soft);background:#FBF8FA;border:1px solid var(--line);padding:5px 11px;border-radius:9px}
+.tag b{color:var(--ink)}
+
+.split{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:start}
+@media(max-width:660px){
+  .split{grid-template-columns:1fr}.qr-wrap{justify-self:start}
+  td:first-child{width:auto;display:block;border-bottom:0;padding-bottom:0;font-size:12px;letter-spacing:.2px;text-transform:uppercase}
+  td{display:block;padding:0 0 14px}
+  tr{display:block;padding-top:10px;border-bottom:1px solid #F8F1F5}
+  tr:last-child{border-bottom:0;padding-bottom:0}
+}
+
+.qr-wrap{text-align:center}
+.qr-wrap svg{display:block;border:1.5px solid var(--line);border-radius:14px;padding:6px;background:#fff}
+.qr-wrap span{display:block;font-size:11px;color:var(--soft);margin-top:7px;max-width:150px}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+td{padding:9px 0;vertical-align:top;border-bottom:1px solid #F8F1F5}
+tr:last-child td{border-bottom:0}
+td:first-child{width:200px;color:var(--soft);font-weight:600}
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;
+  background:#FBF6F9;border:1px solid var(--line);padding:2px 6px;border-radius:6px;word-break:break-all;
+}
+h2{font-size:22px;letter-spacing:-.4px;margin:38px 0 6px}
+.sub{color:var(--soft);font-size:14px;margin:0 0 16px}
+.note{
+  background:linear-gradient(160deg,#fff,#FFFAFB);border:1.5px solid #FDEAEC;
+  border-radius:18px;padding:18px 20px;font-size:14px;
+}
+.note b{color:var(--ink)}
+ol,ul{padding-left:20px;margin:10px 0 0}
+li{margin-bottom:7px;font-size:14px}
+footer{
+  margin-top:44px;padding-top:22px;border-top:1.5px solid var(--line);
+  font-size:12px;color:var(--soft);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+.live-note { margin: 12px 0 0; color: var(--soft); font-size: 12.5px; line-height: 1.55; }
+.verify-list { display: flex; flex-direction: column; gap: 10px; }
+.verify-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 11px 13px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+.verify-row .nm { font-weight: 700; font-size: 14px; flex: 1 1 auto; }
+.verify-row .sz { color: var(--soft); font-size: 12px; flex: 1 1 100%; order: 3;
+  word-break: break-all; }
+.verify-row .vbtn { order: 2; }
+.verify-row .vres { order: 4; flex: 1 1 100%; margin-top: 2px; }
+.vbtn { border: 0; cursor: pointer; font: inherit; font-weight: 700; font-size: 12.5px;
+  padding: 8px 14px; border-radius: 10px; background: var(--pink); color: #fff; }
+.vbtn:disabled { opacity: .55; cursor: progress; }
+.vres { font-size: 12.5px; font-weight: 700; }
+.vres.ok { color: #1E7B4F; }
+.vres.bad { color: #B3261E; }
+.vres.wait { color: var(--soft); font-weight: 500; }
+.badge-live { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 800;
+  letter-spacing: .4px; padding: 3px 8px; border-radius: 999px;
+  background: #E7F7EF; color: #1E7B4F; vertical-align: middle; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a class="brand" href="/app/"><span class="logo">💗</span> MaxiChat</a>
+    <a class="btn-back" href="/app/">← zurück zur App-Seite</a>
+  </div>
+
+  <h1>Holen. <span class="grad">Loslegen.</span></h1>
+  <p class="lead">
+    Eine Seite, drei Plattformen — und bei jeder steht die Wahrheit dran.
+    Android gibt es <b>jetzt</b>. iOS gibt es <b>noch nicht</b> (und darunter steht, warum),
+    Windows gibt es als <b>Vorab-EXE</b>.
+  </p>
+
+  <!-- ============ AUFS HANDY LEGEN (PWA) — ersetzt die alte App ============ -->
+  <div class="card ok" style="border-color:#FFB4DE">
+    <div class="card ok">
+    <div class="card-head">
+      <div class="os">📲</div>
+      <div>
+        <p class="os-title">Aufs Handy legen (ohne Download) <span class="badge-live">EMPFOHLEN</span></p>
+        <p class="os-sub">iPhone &amp; Android · eigenes Icon · Vollbild · keine Installation nötig</p>
+      </div>
+      <span class="pill green">✓ Sofort</span>
+    </div>
+    <div style="padding:0 2px">
+      <p class="live-note" style="margin-bottom:10px">
+        <b>iPhone (Safari):</b> Teilen → „Zum Home-Bildschirm"<br>
+        <b>Android (Chrome):</b> Menü → „App installieren"<br>
+        Fertig — LoveChat liegt wie eine App auf dem Startbildschirm.
+      </p>
+      <p class="live-note">
+        Das ist eine <b>PWA</b>: keine 45 MB, kein Store, keine Signatur.
+        Die alte Zusatz-App wurde auf Wunsch entfernt — sie war doppelt
+        und ließ sich hier nicht mehr bauen. Diese Seite braucht sie nicht.
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ ANDROID ============ -->
+  <div class="card ok">
+    <div class="card-head">
+      <div class="os">🤖</div>
+      <div>
+        <p class="os-title">Android</p>
+        <p class="os-sub">Nativ, 100 % Compose · 0 % WebView · Android 7 bis 18</p>
+      </div>
+      <span class="pill green">✓ Verfügbar</span>
+    </div>
+
+    <div class="split">
+      <div>
+        <a class="btn btn-primary" href="/app/maxichen-v4.15.apk" download>
+          ⬇︎ APK herunterladen · 28,0 MB
+        </a>
+        <a class="btn btn-ghost" href="/app/">Was kann die App?</a>
+
+        <div class="meta">
+          <span class="tag">Version <b>4.15</b></span>
+          <span class="tag">Code <b>19</b></span>
+          <span class="tag"><b>27.985.732</b> Byte</span>
+          <span class="tag">ab <b>Android 7.0</b> (minSdk 24)</span>
+          <span class="tag">bis <b>Android 18</b> (targetSdk 36)</span>
+        </div>
+      </div>
+      <div class="qr-wrap">
+        <svg width="150" height="150" viewBox="0 0 29 29"><path fill="#fff" d="M0 0h29v29h-29z"/><path stroke="#2b1a2e" d="M0 0.5h7m3 0h1m1 0h2m2 0h2m4 0h7m-29 1h1m5 0h1m1 0h1m1 0h2m6 0h1m3 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m3 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h2m3 0h6m3 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m4 0h1m2 0h1m2 0h4m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m4 0h1m2 0h1m2 0h1m2 0h1m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h1m3 0h1m1 0h1m1 0h1m-17 1h1m5 0h1m1 0h1m2 0h1m1 0h1m1 0h3m3 0h2m2 0h3m-28 1h2m1 0h1m4 0h1m2 0h1m1 0h7m3 0h2m1 0h2m-24 1h3m1 0h2m2 0h4m4 0h2m1 0h2m-25 1h2m1 0h2m2 0h1m2 0h1m4 0h2m2 0h4m2 0h1m-25 1h1m3 0h2m2 0h1m2 0h1m2 0h1m4 0h1m1 0h2m4 0h1m-28 1h2m1 0h2m3 0h2m4 0h2m1 0h2m2 0h3m2 0h2m-29 1h2m1 0h4m1 0h3m4 0h2m1 0h1m1 0h3m1 0h3m-25 1h1m1 0h1m2 0h1m1 0h1m2 0h1m9 0h1m3 0h1m1 0h1m-29 1h1m2 0h1m2 0h1m1 0h1m4 0h2m2 0h1m5 0h1m1 0h2m-27 1h1m1 0h1m1 0h1m6 0h1m2 0h2m1 0h1m1 0h2m1 0h3m1 0h3m-29 1h3m1 0h1m1 0h2m1 0h12m1 0h1m1 0h2m2 0h1m-29 1h1m2 0h1m1 0h1m3 0h1m1 0h1m3 0h2m1 0h1m1 0h2m2 0h1m-25 1h1m4 0h3m1 0h1m1 0h1m1 0h2m2 0h1m2 0h5m1 0h3m-21 1h1m1 0h1m1 0h4m1 0h2m1 0h1m3 0h2m-26 1h7m2 0h1m1 0h1m1 0h1m1 0h2m1 0h3m1 0h1m1 0h3m-27 1h1m5 0h1m2 0h3m2 0h1m1 0h1m2 0h2m3 0h1m3 0h1m-29 1h1m1 0h3m1 0h1m5 0h5m2 0h7m1 0h1m-28 1h1m1 0h3m1 0h1m2 0h2m2 0h1m1 0h2m1 0h1m1 0h2m3 0h2m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m3 0h2m1 0h11m-28 1h1m5 0h1m2 0h2m3 0h1m1 0h1m4 0h1m1 0h4m1 0h1m-29 1h7m1 0h3m1 0h1m1 0h1m2 0h1m3 0h3m2 0h1"/></svg>
+        <span>QR scannen → direkt zur APK</span>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:20px">
+      <b>Installieren in 4 Schritten</b>
+      <ol>
+        <li>APK oben antippen — der Download startet.</li>
+        <li>Datei öffnen. Android fragt: „Unbekannte Apps zulassen?" → für <b>deinen Browser</b> erlauben.</li>
+        <li>„Trotzdem installieren" antippen.</li>
+        <li>App öffnen, Nummer eingeben, Code aus WhatsApp oder Mail eintippen. Fertig 💗</li>
+      </ol>
+      <p style="margin:12px 0 0;color:var(--soft);font-size:13px">
+        Die App kommt nicht aus dem Play Store — deshalb der Umweg über die APK.
+        Sie fragt nur nach Netzwerk, Mikrofon und Kamera (für Anrufe und QR-Codes).
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ iOS ============ -->
+  <div class="card soon">
+    <div class="card-head">
+      <div class="os grey">🍏</div>
+      <div>
+        <p class="os-title">iOS — iPhone & iPad</p>
+        <p class="os-sub">Krypto-Kern fertig · Chat-Oberfläche fehlt · keine .ipa</p>
+      </div>
+      <span class="pill gold">In Arbeit</span>
+    </div>
+
+    <p style="margin:14px 0 0;font-size:14.5px">
+      Hier gibt es <b>keine</b> .ipa zum Herunterladen. Nicht, weil ich es vergessen habe —
+      sondern weil eine .ipa auf einem Mac mit Xcode gebaut und mit einem
+      Apple-Developer-Konto (99 €/Jahr) signiert werden muss. Beides habe ich nicht.
+      Eine selbstgebaute „ipa" ohne Signatur würde auf deinem iPhone nicht starten.
+    </p>
+
+    <p style="margin:14px 0 0;font-size:14.5px"><b>Was schon echt ist:</b></p>
+    <div class="meta">
+      <span class="tag"><b>41</b> Swift-Tests grün</span>
+      <span class="tag"><b>10/10</b> Anmeldung gegen echten Server</span>
+      <span class="tag"><b>ML-KEM-768</b> byte-identisch zu Android</span>
+      <span class="tag"><b>iOS 12+</b></span>
+    </div>
+
+    <a class="btn btn-ghost" href="/app/maxichen-ios-4.15.zip" download>
+      ⬇︎ Swift-Paket ansehen (45 KB)
+    </a>
+    <a class="btn" aria-disabled="true" href="#">🍏 .ipa — noch nicht da</a>
+
+    <div class="note" style="margin-top:20px">
+      <b>Was in dem Paket steckt:</b> Anmelde-Flow, TOTP, Badges, PIN-Sperre,
+      Recovery-Codes und seit V4.15 <b>ML-KEM-768</b> (FIPS 203, geprüft gegen
+      eine fremde Referenz-Implementierung). Das ist der Post-Quanten-Teil von PQXDH.
+      <br><br>
+      <b>Was fehlt:</b> die Chat-Oberfläche, Curve25519 (X3DH), der Doppel-Ratchet und Push.
+      Bis das steht, gibt es kein ehrliches „für iOS verfügbar".
+    </div>
+  </div>
+
+  <!-- ============ WINDOWS ============ -->
+  <div class="card ok">
+    <div class="card-head">
+      <div class="os">🪟</div>
+      <div>
+        <p class="os-title">Windows — EXE</p>
+        <p class="os-sub">Echtes Fenster (WebView2) · lädt die Web-App · 2,4 MB</p>
+      </div>
+      <span class="pill gold">⚠ Vorab</span>
+    </div>
+
+    <p style="margin:14px 0 0;font-size:14.5px">
+      Die EXE öffnet ein eigenes Fenster — <b>kein Browser-Tab</b> — und lädt darin
+      MaxiChat von maxichen.de. Gleiches Konto, gleiche Chats wie auf dem Handy.
+    </p>
+
+    <a class="btn btn-primary" href="/app/maxichat-windows-4.15.exe" download>
+      ⬇︎ MaxiChat für Windows · 2,4 MB
+    </a>
+    <a class="btn btn-ghost" href="/">💬 Ohne Download im Browser</a>
+
+    <div class="meta">
+      <span class="tag">Windows <b>10 / 11</b> (x64)</span>
+      <span class="tag"><b>2.450.944</b> Byte</span>
+      <span class="tag">WebView2 nötig (ab Win 10 dabei)</span>
+    </div>
+
+    <div class="note" style="margin-top:20px;border-color:#FCF0DA;background:linear-gradient(160deg,#fff,#FFFCF5)">
+      <b>Was ehrlich dazugehört:</b>
+      <ul>
+        <li>Das ist <b>kein nativer Windows-Code</b>. Es gibt für MaxiChat keinen — die App ist nativ Android (Compose). Die EXE ist ein Fenster um die Web-App.</li>
+        <li>Sie ist <b>hier nicht auf Windows getestet</b>: In dieser Umgebung läuft kein Windows. Gebaut ist sie als gültiges PE32+-Programm (x64, GUI-Subsystem).</li>
+        <li>Fehlt der WebView2-Runtime (Windows 7/8), sagt sie das und verweist auf die Web-Version.</li>
+        <li>Windows zeigt beim ersten Start „Unbekannter Herausgeber" — die EXE ist nicht signiert (Code-Signing-Zertifikat kostet Geld).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ PRÜFSUMMEN ============ -->
+  <h2>Prüfsummen</h2>
+  <p class="sub">Damit du sicher bist, dass die Datei unterwegs nicht verändert wurde.</p>
+  <div class="card">
+    <table id="shaTable">
+      <tbody id="shaBody">
+        <tr><td colspan="2" style="color:var(--soft)">⏳ Prüfsummen werden vom Server geholt …</td></tr>
+      </tbody>
+    </table>
+    <p class="live-note" id="shaNote">Quelle: <code>/api/downloads/latest</code> — live, nicht abgetippt.</p>
+    <p style="margin:14px 0 0;color:var(--soft);font-size:13px">
+      Prüfen auf dem PC: <code>certutil -hashfile maxichen-v4.15.apk SHA256</code> (Windows)
+      oder <code>shasum -a 256 maxichen-v4.15.apk</code> (Mac/Linux).
+    </p>
+  </div>
+
+
+  <!-- ============ LIVE-PRÜFUNG (V4.20) ============ -->
+  <h2>Im Browser nachrechnen</h2>
+  <p class="sub">
+    Jeder kann eine Zahl abschreiben. Hier rechnet der Browser die Prüfsumme der
+    Datei selbst aus — über genau die Bytes, die bei dir ankommen.
+  </p>
+  <div class="card">
+    <div id="verifyList" class="verify-list">
+      <span style="color:var(--soft);font-size:13px">⏳ Dateien werden geladen …</span>
+    </div>
+    <p class="live-note">
+      Rechnet im Browser mit <code>crypto.subtle.digest('SHA-256')</code>. Die Datei
+      wird dafür einmal komplett geladen — das ist der Preis dafür, dass die
+      Prüfung etwas wert ist.
+    </p>
+  </div>
+
+  <!-- ============ EHRLICHKEIT ============ -->
+  <h2>Warum hier „nicht verfügbar" steht</h2>
+  <p class="sub">Ein toter Download-Button ist schlimmer als keiner.</p>
+  <div class="card">
+    <table>
+      <tr><td>Android</td><td>Echt gebaut, echt getestet (186 Kotlin-Tests), echt installierbar.</td></tr>
+      <tr><td>iOS</td><td>Der Kern ist fertig und bewiesen, die App-Hülle nicht. Ohne Mac kein Build, ohne Signatur kein Start.</td></tr>
+      <tr><td>Windows</td><td>Gebaut als Fenster um die Web-App (WebView2). Kein nativer Windows-Code — den gibt es für MaxiChat nicht. Auf einem echten Windows noch nicht getestet.</td></tr>
+    </table>
+  </div>
+
+  <footer>
+    <div>
+      <b style="color:var(--ink)">MaxiChat</b> · Downloads · Stand 25.10.2026<br>
+      <span>By Maxichen · Made with 💗</span>
+    </div>
+    <div><a href="/app/" style="color:var(--pink);text-decoration:none;font-weight:700">maxichen.de/app</a></div>
+  </footer>
+
+</div>
+
+<script src="/downloads.js" defer></script>
+</body>
+</html>
